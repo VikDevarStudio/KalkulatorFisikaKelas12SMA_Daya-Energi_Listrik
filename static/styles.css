@@ -1,0 +1,137 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body dan Layout */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f3f1;
+    /* Warna latar belakang hangat coklat muda */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #d2b48c;
+}
+
+.container {
+    background: #fff;
+    /* Warna latar belakang putih untuk konten utama */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+}
+
+/* Gaya untuk elemen dalam container */
+.container h1 {
+    text-align: center;
+    color: #8b4513;
+    /* Warna coklat gelap untuk heading utama */
+    margin-bottom: 20px;
+}
+
+.container h5 {
+    text-align: center;
+    color: #a0522d;
+    /* Warna coklat oranye untuk teks kecil */
+}
+
+.container b {
+    color: #d2691e;
+    /* Warna coklat merah untuk teks bold */
+}
+
+/* Formulir */
+form {
+    display: grid;
+    gap: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #8b4513;
+    /* Warna coklat gelap untuk label */
+}
+
+input[type="number"],
+input[type="submit"] {
+    border: 2px solid #d2b48c;
+    /* Warna coklat muda untuk border */
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+input[type="number"]:focus,
+input[type="submit"]:hover {
+    border-color: #a0522d;
+    /* Warna coklat oranye untuk fokus dan hover */
+}
+
+input[type="submit"] {
+    background-color: #a0522d;
+    /* Warna coklat oranye untuk tombol submit */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #8b4513;
+    /* Warna coklat gelap untuk hover */
+}
+
+/* Hasil */
+.result {
+    margin-top: 20px;
+}
+
+.result h2 {
+    color: #8b4513;
+    /* Warna coklat gelap untuk heading hasil */
+    margin-bottom: 10px;
+}
+
+.result-item {
+    background-color: #d2b48c;
+    /* Warna coklat muda untuk item hasil */
+    border: 1px solid #deb887;
+    /* Warna coklat oranye muda untuk border */
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.result-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.result-item span {
+    font-weight: bold;
+    color: #a0522d;
+    /* Warna coklat oranye untuk angka hasil */
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    input[type="submit"] {
+        font-size: 16px;
+    }
+}
