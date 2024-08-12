@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Daya dan Energi (Vik)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Kalkulator Daya dan Energi</h1>
+        <h5>Made by <b>VIKESH A.D</b></h5>
+        <form method="post">
+            <h2>Hitung Daya dan Energi</h2>
+            <label>Energi Pakai Waktu/W (Joule): <input type="number" name="work" step="any"></label>
+            <label>Waktu/t (detik): <input type="number" name="time" step="any"></label>
+            <label>Tegangan/V (V): <input type="number" name="voltage" step="any"></label>
+            <label>Kuat Arus/I (A): <input type="number" name="current" step="any"></label>
+            <label>Resistor/Hambatan/R (Ω): <input type="number" name="resistance" step="any"></label>
+            <label>Energi/W (Joule): <input type="number" name="energy" step="any"></label>
+            <label>Daya/P (Watt): <input type="number" name="power" step="any"></label>
+            <br>
+            <input type="submit" value="Hitung">
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Hasil:</h2>
+            {% if result['P'] is not none %}
+            <div class="result-item">
+                <p>Daya/P dari W / t: <span>{{ result['P'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['P_v_i'] is not none %}
+            <div class="result-item">
+                <p>Daya/P dari V × I: <span>{{ result['P_v_i'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['P_i_r'] is not none %}
+            <div class="result-item">
+                <p>Daya/P dari I² × R: <span>{{ result['P_i_r'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['P_v2_r'] is not none %}
+            <div class="result-item">
+                <p>Daya/P dari V² / R: <span>{{ result['P_v2_r'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['E_v_i_t'] is not none %}
+            <div class="result-item">
+                <p>Energi/W dari V × I × t: <span>{{ result['E_v_i_t'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['E_p_t'] is not none %}
+            <div class="result-item">
+                <p>Energi/W dari P × t: <span>{{ result['E_p_t'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['E_i_r_t'] is not none %}
+            <div class="result-item">
+                <p>Energi/W dari I² × R × t: <span>{{ result['E_i_r_t'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['E_v2_r_t'] is not none %}
+            <div class="result-item">
+                <p>Energi/W dari V² / R × t: <span>{{ result['E_v2_r_t'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['V_from_P_I'] is not none %}
+            <div class="result-item">
+                <p>Tegangan/V dari P / I: <span>{{ result['V_from_P_I'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['V_from_E_I_T'] is not none %}
+            <div class="result-item">
+                <p>Tegangan/V dari E / (I × t): <span>{{ result['V_from_E_I_T'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['V_sqrt_P_R'] is not none %}
+            <div class="result-item">
+                <p>Tegangan/V dari (P × R): <span>{{ result['V_sqrt_P_R'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['V_sqrt_E_R_T'] is not none %}
+            <div class="result-item">
+                <p>Tegangan/V dari ((E × R) / t): <span>{{ result['V_sqrt_E_R_T'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['T_from_E_P'] is not none %}
+            <div class="result-item">
+                <p>Waktu/t dari E / P: <span>{{ result['T_from_E_P'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['T_from_E_V_I'] is not none %}
+            <div class="result-item">
+                <p>Waktu/t dari E / (V × I): <span>{{ result['T_from_E_V_I'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['T_from_E_I_R'] is not none %}
+            <div class="result-item">
+                <p>Waktu/t dari E / (I² × R): <span>{{ result['T_from_E_I_R'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['T_from_E_R_V2'] is not none %}
+            <div class="result-item">
+                <p>Waktu/t dari (E × R) / V²: <span>{{ result['T_from_E_R_V2'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['I_from_P_V'] is not none %}
+            <div class="result-item">
+                <p>Kuat Arus/I dari P / V: <span>{{ result['I_from_P_V'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['I_sqrt_P_R'] is not none %}
+            <div class="result-item">
+                <p>Kuat Arus/I dari (P / R): <span>{{ result['I_sqrt_P_R'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['I_from_E_V_T'] is not none %}
+            <div class="result-item">
+                <p>Kuat Arus/I dari E / (V × t): <span>{{ result['I_from_E_V_T'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['I_sqrt_E_R_T'] is not none %}
+            <div class="result-item">
+                <p>Kuat Arus/I dari (E / (R × t)): <span>{{ result['I_sqrt_E_R_T'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['R_from_P_I2'] is not none %}
+            <div class="result-item">
+                <p>Resistor/Hambatan/R dari P / I²: <span>{{ result['R_from_P_I2'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['R_from_V2_P'] is not none %}
+            <div class="result-item">
+                <p>Resistor/Hambatan/R dari V² / P: <span>{{ result['R_from_V2_P'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['R_from_V2_E_T'] is not none %}
+            <div class="result-item">
+                <p>Resistor/Hambatan/R dari V² / (E × t): <span>{{ result['R_from_V2_E_T'] }}</span></p>
+            </div>
+            {% endif %}
+            {% if result['R_from_E_I2_T'] is not none %}
+            <div class="result-item">
+                <p>Resistor/Hambatan/R dari E / (I² × T): <span>{{ result['R_from_E_I2_T'] }}</span></p>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
